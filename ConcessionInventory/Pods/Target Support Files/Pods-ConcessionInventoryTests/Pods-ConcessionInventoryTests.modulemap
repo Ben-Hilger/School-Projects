@@ -1,0 +1,6 @@
+framework module Pods_ConcessionInventoryTests {
+  umbrella header "Pods-ConcessionInventoryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

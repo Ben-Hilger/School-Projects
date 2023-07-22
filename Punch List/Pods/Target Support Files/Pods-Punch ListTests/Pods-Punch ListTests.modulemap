@@ -1,0 +1,6 @@
+framework module Pods_Punch_ListTests {
+  umbrella header "Pods-Punch ListTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
