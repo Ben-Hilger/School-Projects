@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Edge Database' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Edge Database
+pod 'Firebase/Core'
+  	pod ‘Firebase/Firestore’
+pod ‘Firebase/Auth'
+	pod 'Firebase/Storage'
+  target 'Edge DatabaseTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Edge DatabaseUITests' do
+    # Pods for testing
+  end
+
+end

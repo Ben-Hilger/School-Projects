@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key></key>
+	<string></string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.321435698892-3ftdkvfa3np93t56i02md18vnt4s1mn3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAbMyMKdUwMxgziMERaADnuKHQ0Oc--NsQ</string>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GCM_SENDER_ID</key>
+	<string>321435698892</string>
+	<key>BUNDLE_ID</key>
+	<string>HilgerStudios.Edge-Pro</string>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:321435698892:ios:4458f3c10a16ef5e85a469</string>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>DATABASE_URL</key>
+	<string>https://lessons-pro.firebaseio.com</string>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>PROJECT_ID</key>
+	<string>lessons-pro</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lessons-pro.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>CLIENT_ID</key>
+	<string>321435698892-3ftdkvfa3np93t56i02md18vnt4s1mn3.apps.googleusercontent.com</string>
+</dict>
+</plist>
