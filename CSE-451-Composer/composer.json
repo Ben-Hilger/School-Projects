@@ -1,0 +1,20 @@
+{
+    "name": "hilgerbj/open-weather-client",
+    "description": "A client wrapper for the OpenWeather API.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hilgerbj\\OpenWeatherClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kyle Lierer",
+            "email": "liererkt@miamioh.edu"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}

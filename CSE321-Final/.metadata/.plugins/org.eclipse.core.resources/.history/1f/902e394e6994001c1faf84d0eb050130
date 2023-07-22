@@ -1,0 +1,143 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class BoundedQueueTest {
+
+	private BoundedQueue queue;
+	
+	@Before
+	public void setup() {
+		queue = new BoundedQueue(3);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInit() {
+		// Test with a positive number 
+		queue = new BoundedQueue(5);
+		assertEquals(queue.toString(), "[]");
+		// Test with a negative number
+		queue = new BoundedQueue(-4);
+		
+	}
+	
+	
+	@Test(expected = NullPointerException.class)
+	public void testEnQeueNull() {
+		queue.enQueue(null);
+	}
+
+	@Test(expected = IllegalStateException.class)
+	public void testEnQeueIllegalState() {
+		// Add 1 into the queue (which will set it to capacity)
+		queue.enQueue(2);
+		queue.enQueue(2);
+		queue.enQueue(2);
+		// Attempt to over fill it
+		queue.enQueue(5);
+	}
+	
+	@Test
+	public void testEnQueue() {
+		// Attempt adding one element
+		queue.enQueue(2);
+		assertEquals(queue.toString(), "[2]");
+		
+		// Attempt adding multiple elements of the same type
+		queue = new BoundedQueue(5);
+		queue.enQueue(6);
+		assertEquals(queue.toString(), "[6]");
+		queue.enQueue(8);
+		assertEquals(queue.toString(), "[6, 8]");
+		queue.enQueue(3);
+		assertEquals(queue.toString(), "[6, 8, 3]");
+		queue.enQueue(9);
+		assertEquals(queue.toString(), "[6, 8, 3, 9]");
+
+		// Adding an element of a different type
+		queue.enQueue("Hello");
+		assertEquals(queue.toString(), "[6, 8, 3, 9, Hello]");
+		
+	}
+	
+	@Test
+	public void testIsFull() {
+		// Test it starting off empty
+		assertEquals(queue.isFull(), false);
+		
+		// Add two elements 
+		queue.enQueue(6);
+		queue.enQueue(8);
+		assertEquals(queue.isFull(), false);
+		
+		// Add one more element to fill it
+		queue.enQueue(3);
+		assertEquals(queue.isFull(), true);
+		
+		// Remove one element to make it no longer full
+		queue.deQueue();
+		assertEquals(queue.isFull(), false);
+	}
+	
+	@Test
+	public void testIsEmpty() {
+		// Test it starting off empty
+		assertEquals(queue.isEmpty(), true);
+		
+		// Add two elements 
+		queue.enQueue(6);
+		queue.enQueue(8);
+		assertEquals(queue.isEmpty(), false);
+		
+		// Add one more element to fill it
+		queue.enQueue(3);
+		assertEquals(queue.isEmpty(), false);
+		
+		// Remove one element to make it no longer full
+		queue.deQueue();
+		assertEquals(queue.isFull(), false);
+		
+		// Remove the other two elements, so it should be empty again
+		queue.deQueue();
+		queue.deQueue();
+		assertEquals(queue.isEmpty(), true);
+
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void testDequeueIllegalImmediate() {
+		// Immediately try to dequeue an empty queue
+		queue.deQueue();
+	}
+	
+	@Test(expected = IllegalStateException.class)
+	public void testDequeueIllegal() {
+		// Fill the queue
+		queue.enQueue(3);
+		queue.enQueue(6);
+		queue.enQueue(10);
+		// Dequeue until it's empty, then cause illegal state
+		queue.deQueue();
+		queue.deQueue();
+		queue.deQueue();
+		queue.deQueue();
+	}
+	
+	@Test
+	public void testDequeue() {
+		queue.enQueue(3);
+		queue.deQueue();
+		assertEquals(queue.toString(), "[]");
+		
+		queue.enQueue(3);
+		queue.enQueue("Hello");
+		assertEquals(queue.deQueue(), 3);
+		assertEquals(queue.toString(), "[Hello]");
+		assertEquals(queue.deQueue(), "Hello");
+		assertEquals(queue.toString(), "[]");
+
+	}
+	
+	
+}

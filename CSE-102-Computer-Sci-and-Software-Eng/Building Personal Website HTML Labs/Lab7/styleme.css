@@ -1,0 +1,40 @@
+table, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	color: red;
+}
+
+#MoodTable {
+	border: none;
+}
+
+#MoodData {
+	border: none;
+}
+
+body {
+	background-color: lightblue;
+}
+
+p {
+	color: black;
+    font-style: "TimesNewRoman";
+}
+
+#HappyText {
+	color: green;
+    font-style: "Arial";
+}
+
+#SadText {
+	color: grey;
+    font-style: "Arial";
+}
+
+
+b {
+    color: blue;
+    font-size: 125%;
+}
+

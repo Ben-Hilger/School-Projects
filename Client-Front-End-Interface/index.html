@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+
+<html>
+	<head>
+		<title>CSE383 Final</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+                <!-- jQuery library -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                <!-- Latest compiled JavaScript -->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+		<style>
+			.nav-item:hover {
+				color: white;
+			}
+
+			.nav-item {
+				color : black;
+			}
+
+			.custom-image {
+			}
+		</style>
+	</head>
+	<body class="bg-white">
+		<nav class="navbar navbar-expand-md bg-danger navbar-dark">
+			
+			<a class="text-black navbar-brand" href="#">Navigation</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    				<span class="navbar-toggler-icon"></span>
+  			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="nav nav-pills">
+					<li>
+						<a href="#" id="Information-button" class="nav-item nav-link active" onclick="goToTab('Information')">Information</a>
+					</li>
+					<li>
+						<a id="Calculator-button" class="nav-item nav-link" href="#" onclick="goToTab('Calculator')">Calculator</a>
+					</li>
+					<li>
+						<a id="Weather-button" class="nav-item nav-link" href="#" onclick="goToTab('Weather')">Weather</a>
+					</li>
+					<li>
+						<a id="Sensor-button" class="nav-item nav-link" href="#" onclick="goToTab('Sensor')">Sensor</a>
+					</li>
+					<li>
+						<a id="SensorReport-button" class="nav-item nav-link" href="#" onclick="goToTab('SensorReport')">Sensor Report</a>
+					</li>	
+				</ul>
+			</div>
+		</nav>		
+		<div class="container-fluid text-center">
+		<!-- Information Tab-->
+		<div class="nav-tab text-center" id="Information">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="mx-auto">Information Page</h2>
+				</div>
+				<div class="col-lg-4 col-sm-12 border border-dark">
+					<h4>Website Design Information</h4>
+					<h5 class="text-left">Created by: Ben  Hilger</h5>
+					<h5 class="text-left">Date Completed: Monday, December 7th, 2020</h5>
+					<h5 class="text-left">Project Name: CSE383 Final Project</h5>
+					<h5 class="text-left">Instructor: Dr. Johnson</h5>
+					<h5 class="text-left">Designed for: CSE383 Web Application Programming</h5>
+				</div>
+				<div class="col-lg-8 col-sm-12">
+					<h2 class="text-center">Description of Website</h2>
+					<ul>
+						<li class="text-left">This is a client front-end interface providing an assortment of options for the user to explore.</li>
+						<li class="text-left">This interface provides the following:<br>
+							<ul>
+								<li>Calculator
+									<ul>
+										<li>Allows you to perform + - * / operations on two numbers of your choosing</li>
+									</ul>
+								</li>
+								<li>7-day Weather Forcast
+									<ul>
+										<li>Provides up-to-date weather forcasting for the next 7 days based on a specified zipcode</li>
+									</ul>
+								</li>
+								<li>Updating Sensors
+									<ul>
+										<li>Allows you to add a new sensor reading to the database for storage</li>
+									</ul>
+								</li>
+								<li>Sensor Reports
+									<ul>
+										<li>Allows you to generate a sensor report with a specified number of sensor readings and optional location and sensor specification</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Calculator Tab-->
+		<div class="nav-tab d-none" id="Calculator">
+			<h2>Calculator</h2>
+			<p>Welcome to the Calculator! To begin, please enter two numbers below and choose your desired operation. Then, click the button below to see the results.</p>	
+			<hr>
+			<div class="row justify-content-center">
+				<div class="row col-sm-12 text-center">
+					<div class="col-lg-5 col-sm-12 form-group mx-lg-0 px-lg-4 text-lg-right text-sm-center">
+						<input type="number" value="0" id="numberOne">
+					</div>
+					<div class="col-lg-2 col-sm-12 form-group mx-lg-0 px-lg-4 text-lg-right text-sm-center">
+						<select class="form-control w-50 mx-auto" id="operation">
+							<option value="">None</option>
+							<option value="add">+</option>
+							<option value="sub">-</option>
+							<option value="multi">*</option>
+							<option value="div">/</option>
+						</select>
+					</div>
+					<div class="col-lg-5 col-sm-12 form-group mx-lg-0 px-lg-4 text-lg-left text-sm-center">
+						<input class="mb-2" type="number" value="0" id="numberTwo">
+					</div>
+					<div class="col-sm-12 form-group text-center">
+					<button onclick="calc()" class="btn btn-primary my-2" type="button">Evaluate</button>
+					</div>
+					
+				</div>
+				<div class="col-sm-12 alert alert-danger d-none" id="errorCalc" role="alert">
+				</div>
+				<div class="col-auto justify-content-center">
+					<table class="table table-responsive d-none" id="calcTable">
+						<thead>
+							<th>First Number</th>
+							<th>Operation</th>
+							<th>Second Number</th>
+							<th class="text-muted">=</th>
+							<th>Result</th>
+						</thead>
+						<tbody id="calc-results-table">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--Weather Tab-->
+		<div class="nav-tab d-none" id="Weather">
+			<h2>Weather</h2>
+			<p>Welcome to the Weather! To begin, please enter a valid zipcode and then click on the button below.</p>
+			<hr>
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<div class="form-group">
+						<input type="text" placeholder="Zipcode" id="zipcode">
+						<br>
+						<button class="btn btn-primary my-2" onclick="getZipcodeWeather()" type="button">Get Weather</button>
+					</div>
+					<div class="col-sm-12 alert alert-danger d-none text-center" id="alertWeather" role="alert">
+						<h6>Please enter a valid zipcode!</h6>
+					</div>
+
+
+				</div>
+				
+				<div class="d-none row col-sm-12 mx-auto" id="forcastCon">
+					<div class="col-sm-12 text-center">
+						<h1> 7-Day Forecast </h1>
+					</div>
+					<div class="col-sm-8 col-lg-12 offset-sm-2 offset-lg-0 border border-dark bg-primary weatherforcast">
+						<div class="container-fluid">
+							<div class="row justify-content-center">
+								<div class="col-auto">
+									<h1 id="town-name" class="display-4">Oxford</h1>
+									<h4 id="cur-weather-cond">Clear</h4>
+									<p id="current-sunrise" class="mb-0">Sunrise: </p>
+									<p id="current-sunset" class="mt-0">Sunset: </p>
+									<p id="today-high-low">H: 30 F L: 27 F</p>
+									<table class="table table-responsive border border-white" id="weatherTable">
+										<tbody>
+											<tr>
+												<td class="text-left">Sunday</td>
+												<td class="text-right">Image</td>
+												<td class="text-left">Percip</td>
+												<td class="text-right">High</td>
+												<td class="text-left text-secondary">Low</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Sensor Tab-->
+		<div class="nav-tab d-none" id="Sensor">
+			<h2>Sensor Update</h2>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="form-group text-center">
+						<p>Welcome to the Sensor Update Page! To being, please select a sensor and location and enter the value recorded. Then press the button below to update the database.</p>
+						<h6>ATTN: This may not be able to update the database. Once the credits for the AWS instance expire, the database will be taken offline</h6>
+						<select class="form-control mx-auto w-50" id="sensor">
+							<option disabled selected>Please Select a Specific Sensor</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+						</select><br>
+						<input type="text" class="form-control mx-auto w-50" id="sensorLoc">
+						<br>
+						<div class="row">
+							<div class="col-sm-12 text-sm-center col-lg-6 text-lg-right">
+								<label for="sensorValue">Please enter the sensor value:</label>
+							</div>
+							<div class="col-sm-12 text-sm-center col-lg-6 text-lg-left">
+								<input type="number" placeholder="Enter Sensor Value" id="sensorValue">
+							</div>
+						</div>
+						<br>
+						<button onclick="updateSensor()" class="my-2 btn btn-primary">Update Sensor</button>	
+						<div class="alert alert-success d-none" id="sensorCom">
+							Sensor Information Updated Successfully!
+						</div>
+						<div class="alert alert-danger d-none" id="sensorErr">
+						</div>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!--Sensor Report Tab-->
+		<div class="nav-tab d-none" id="SensorReport">
+			<h2>Sensor Report</h2>
+			<div class="row">
+				<div class="col-lg-12 justify-content-center">
+					<div class="form-group text-center">
+						<label for="qty">Welcome to the Sensor Report Page! To begin, please select the number of sensors to include in the report:</label>
+						<h6>ATTN: This may not be able to generate a report from the database. Once the credits for the AWS instance expire it will be shut down.</h6>
+						<select id="qty" class="form-control mx-auto w-75"></select><br>
+						<select class="form-control mx-auto w-75" id="sensorGet">
+							<option disabled selected>Please Select a Specific Sensor (Optional)</option>
+						</select><br>
+						<select class="form-control mx-auto w-75" id="sensorLocGet">
+							<option value=" " disabled selected>Please Select a Sensor Location (Optional)</option>	
+						</select>
+						<br>
+						<button onclick="getSensorReport()" class="btn btn-primary">Get Sensor Report</button>
+					</div>
+					<div class="alert alert-danger d-none" id="alertSensorReport">
+					</div>
+
+					<table class="table d-none table-responsive" id="sensorReportTable">
+						<thead>
+							<tr>
+								<th>Location</th>
+								<th>Sensor</th>
+								<th>Date Time</th>
+								<th>Value</th>
+								<th>Source</th>
+							</tr>
+						</thead>
+						<tbody id="reportbody"> 
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+		</div>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script>
+		</script>
+		<script src="index.js"></script>
+		<script src="calc.js?rev=3"></script>
+		<script src="weather.js?rev=2"></script>
+		<script src="sensor.js?rev=1"></script>
+		<script src="sensorreport.js?rev=1"></script>
+	</body>
+</html>

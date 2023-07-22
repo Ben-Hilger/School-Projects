@@ -1,0 +1,70 @@
+<!--
+Name: Ben Hilger
+Date: 11/18/19
+Section: B
+Email: hilgerbj@miamioh.edu
+
+Unique ID: hilgerbj
+-->
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styleme.css"/>
+		<title> About Benjamin Hilger </title>
+	</head>
+
+	<body>
+		<p style="width:100%;text-align:center"> About Benjamin Hilger </p>
+        
+        <div id="CenterDiv">
+                <button onclick="location.href='index.html'"> Home </button>
+                <button onclick="location.href='classes.html'"> Classes </button>
+                <button onclick="location.href='my_favorite.html'"> My Favorite </button>
+                <button onclick="location.href='my_mood.html'"> My Moods </button>
+                <button onclick="location.href='my_neighbors.html'"> My Neighbors </button>                
+				<button onclick="location.href='programs.html'"> My Programs </button>
+        </div>
+        <hr>
+        <div id="CenterDiv">
+          <p> Calculator </p>
+		</div>		
+		
+		<div id="inputDiv">
+			<script>
+                do {
+                    oper = parseInt(prompt("Please make a selection:\n1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division\n5 - Exit"))
+                    
+                    if(oper >= 1 && oper <= 4) {
+                        
+                        firstOper = parseInt(prompt("Enter the first value:"))
+                        
+                        secondOper = parseInt(prompt("Enter the second value:"))
+                        
+                        if(oper == 1) {
+                            alert(firstOper + " + " + secondOper + " = " + (firstOper+secondOper))
+                        } else if (oper == 2) {
+                             alert(firstOper + " - " + secondOper + " = " + (firstOper-secondOper))
+                        } else if(oper == 3) {
+                             alert(firstOper + " * " + secondOper + " = " + (firstOper*secondOper))
+                        } else if(oper == 4) {
+                            alert(firstOper + " / " + secondOper + " = " + (firstOper/secondOper))
+                        }
+                        
+                    }
+                    
+                } while(oper != 5)
+                                                                            
+                alert("Thank you for using our website, Have a Nice Day")
+                
+            </script>
+		</div>
+        <hr>
+            <div id="CenterDiv">
+                <button onclick="document.body.style.backgroundColor = 'blue';"> Change Background Color </button>
+            </div>
+      
+        
+        
+        
+	</body>
+</html>

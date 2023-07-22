@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/benjaminhilger/Desktop/Miami University/Spring 2022/CSE 321/.metadata/.plugins/org.eclipse.jdt.core
+3622984261.index
+810110462.index
+1212926200.index
+2084041141.index

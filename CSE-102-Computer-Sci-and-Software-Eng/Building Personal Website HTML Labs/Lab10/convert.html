@@ -1,0 +1,51 @@
+<!--
+Name: Ben Hilger
+Date: 11/10/19
+Section: B
+Email: hilgerbj@miamioh.edu
+
+Unique ID: hilgerbj
+-->
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styleme.css"/>
+		<title> About Benjamin Hilger </title>
+	</head>
+
+	<body>
+		<p style="width:100%;text-align:center"> About Benjamin Hilger </p>
+        
+        <div id="CenterDiv">
+                <button onclick="location.href='index.html'"> Home </button>
+                <button onclick="location.href='classes.html'"> Classes </button>
+                <button onclick="location.href='my_favorite.html'"> My Favorite </button>
+                <button onclick="location.href='my_mood.html'"> My Moods </button>
+                <button onclick="location.href='my_neighbors.html'"> My Neighbors </button>                
+				<button onclick="location.href='programs.html'"> My Programs </button>
+        </div>
+        <hr>
+        <div id="CenterDiv">
+          <p> Convert Miles to Kilometers </p>
+		</div>		
+		
+		<div id="inputDiv">
+			Enter Miles: <input type="text" id="miles"> miles
+			<br>
+			<button onclick=" 
+			miles = document.getElementById('miles').value;
+			kilometers = miles*1.609344;
+			document.getElementById('kilo').value = kilometers;">Convert to Kilometers</button>
+			<br>
+			Kilometers result: <input type="text" id="kilo"> kms
+		</div>
+        <hr>
+            <div id="CenterDiv">
+                <button onclick="document.body.style.backgroundColor = 'blue';"> Change Background Color </button>
+            </div>
+      
+        
+        
+        
+	</body>
+</html>

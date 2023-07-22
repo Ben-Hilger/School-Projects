@@ -1,0 +1,162 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.junit.experimental.theories.DataPoints;
+import org.junit.experimental.theories.Theories;
+import org.junit.experimental.theories.Theory;
+import org.junit.runner.RunWith;
+
+@RunWith(Theories.class)
+public class PointTest {
+
+	@DataPoints
+	public static ArrayList[] points = { 
+			new ArrayList(Arrays.asList(1, 5)),
+			new ArrayList(Arrays.asList(1, 5)),
+			new ArrayList(Arrays.asList(2, 22, 22, 2)),
+			new ArrayList(Arrays.asList(2, 22, 5, -2)),
+			new ArrayList(Arrays.asList(2, -22, 22, 2)),
+			new ArrayList(Arrays.asList(-2, 22, 22, 2)),
+			new ArrayList(Arrays.asList(2, 22, -22, 2)),
+	};
+	
+	@Theory
+	public void notEqualToNonPointObjects(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 2);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		// Test to ensure non-Point objects return false
+		assertFalse(point1.equals(""));
+	}
+	
+	@Theory
+	public void equalToSelf(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 2);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		Point point = new Point(vals.get(0), vals.get(1));
+		assumeTrue(point.equals(point));
+		assumeTrue(point.equals(point));
+	}
+	
+	@Theory
+	public void notEqualWhenCoordsDifferent(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		// Ensure (x, y) and (y, x) aren't equal (in this case, (5, 1) and (1, 5)
+		assertFalse(point1.equals(point2));
+		assertFalse(point2.equals(point1));
+	}
+		
+	@Theory
+	public void notEqualHashCode(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) != vals.get(2) || vals.get(1) != vals.get(3));
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		int hashCode1 = Integer.parseInt("" + vals.get(0) + ((int)'-') + vals.get(1));
+		int hashCode2 = Integer.parseInt("" + vals.get(2) + ((int)'-') + vals.get(3));
+		assertFalse(point1.hashCode() == hashCode2);
+		assertTrue(point2.hashCode() == hashCode1);
+		assertFalse(point1.hashCode() == hashCode2);
+		assertTrue(point2.hashCode() == hashCode1);
+	}
+	
+	@Theory
+	public void equalHashCode(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) == vals.get(2));
+		assumeTrue(vals.get(1) == vals.get(3));
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		int hashCode1 = Integer.parseInt("" + vals.get(0) + ((int)'-') + vals.get(1));
+		int hashCode2 = Integer.parseInt("" + vals.get(2) + ((int)'-') + vals.get(3));
+		assertTrue(point1.hashCode() == hashCode1);
+		assertTrue(point2.hashCode() == hashCode2);
+		assertTrue(point)
+	}
+	
+	
+//	@Theory
+//	public void testEquals() {
+//			
+//		// Ensure two different points with the same coordinates are still equal
+//		assertTrue(point1.equals(point3));
+//		assertTrue(point3.equals(point1));
+//		
+//		// Ensure that two different points with different coordinates aren't equal
+//		assertFalse(point1.equals(point4));
+//		assertFalse(point4.equals(point1));
+//		
+//		// Ensure that two different points with different coordinates, but the same number, isn't equals.
+//		// In this case (2, 22) and (22, 2) are different, but use only 2 in its coordinates
+//		assertFalse(point5.equals(point6));
+//		assertFalse(point6.equals(point5));
+//	}
+//	
+//	@Theory
+//	public void testHashCode() {
+//		// Test to ensure the hash code is properly tested
+//		int hashCode = Integer.parseInt("" + 1 + ((int)'-') + 5);
+//		assertEquals(point1.hashCode(), hashCode);
+//		
+//		// Test to ensure the (x, y) and (y, x) don't get interpreted 
+//		// as the same. (in this case, (2, 22) and (22, 2) could be both 222 and 222)
+//		// This tests that - put in-between the x and y properly separates the number (2-22 and 22-2)
+//		int hashCode5 = Integer.parseInt("" + 2 + ((int)'-') + 22);
+//		int hashCode6 = Integer.parseInt("" + 22 + ((int)'-') + 2);
+//		assertFalse(point5.hashCode() == hashCode6);
+//		assertTrue(point6.hashCode() == hashCode6);
+//		assertFalse(point6.hashCode() == hashCode5);
+//		assertTrue(point5.hashCode() == hashCode5);
+//		
+//		// Test to ensure x, y and y, x (in this case, (1, 5) and (5, 1)) 
+//		// aren't interpreted as the same
+//		int hashCode1 = Integer.parseInt("" + 1 + ((int)'-') + 5);
+//		int hashCode2 = Integer.parseInt("" + 5 + ((int)'-') + 1);
+//		assertFalse(point1.hashCode() == hashCode2);
+//		assertTrue(point2.hashCode() == hashCode2);
+//		assertFalse(point2.hashCode() == hashCode1);
+//		assertTrue(point1.hashCode() == hashCode1);
+//	}
+	
+	
+//	@Test
+//	public void testPointHash() {
+//		// Create a point to add
+//		Point point = new Point(2, 4);
+//		// Create a point with the same x and y value
+//		Point point2 = new Point(2, 4);
+//		// Create a HashSet to store the point
+//		HashSet<Point> set = new HashSet<Point>();
+//		// Store the point
+//		set.add(point);
+//		assertEquals(set.size(), 1);
+//		// Check if the set contains a point
+//		assertTrue(set.contains(point));
+//		// Check if the set contains a different point, but with the same coordinates
+//		// This should be equal, since the equals() would return true in this instance
+//		assertTrue(set.contains(point2));
+//	}
+
+	
+	
+}

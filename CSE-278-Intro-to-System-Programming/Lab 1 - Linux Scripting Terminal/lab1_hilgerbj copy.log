@@ -1,0 +1,51 @@
+Script started on 2020-02-11 11:09:57-0500
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ date
+Tue Feb 11 11:10:03 EST 2020
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ who < log.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ mkdir lab1
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ chmod 765 lab1
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ ls -lsa > root.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ cp root.txt root2.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ sort -r -k 4 root2.txt > sorted.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ cat root.txt root2.txt > joint.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ cat root2.txt
+total 88
+ 4 drwxrwxr-x   9 hilgerbj uuidd  4096 Feb 11 11:11 .
+20 drwxr-xr-x 444 root     root  20480 Feb 10 17:01 ..
+ 8 -rw-------   1 hilgerbj uuidd  5909 Feb 11 10:46 .bash_history
+ 4 -rw-rw-r--   1 hilgerbj uuidd   220 Feb  3 22:52 .bash_logout
+ 4 -rw-rw-r--   1 hilgerbj uuidd  3771 Feb  3 22:52 .bashrc
+ 4 drwx------   2 hilgerbj uuidd  4096 Feb  3 22:52 .cache
+ 4 drwxr-xr-x   4 hilgerbj uuidd  4096 Feb  8 12:10 cse278
+ 4 drwxrw-r-x   2 hilgerbj uuidd  4096 Feb 11 11:11 lab1
+ 0 -rw-r--r--   1 hilgerbj uuidd     0 Feb 11 11:09 lab1_hilgerbj.log
+ 4 drwxr-xr-x   3 hilgerbj uuidd  4096 Feb  4 10:50 .local
+ 4 -rw-r--r--   1 hilgerbj uuidd  2784 Feb 11 11:10 log.txt
+ 4 drwxr-xr-x   3 hilgerbj uuidd  4096 Feb  4 11:33 .netbeans
+ 4 drwxr-xr-x   2 hilgerbj uuidd  4096 Feb 10 22:03 .oracle_jre_usage
+ 4 -rw-rw-r--   1 hilgerbj uuidd   807 Feb  3 22:52 .profile
+ 4 drwxr-xr-x   2 hilgerbj uuidd  4096 Feb  4 10:17 public_html
+ 0 -rw-r--r--   1 hilgerbj uuidd     0 Feb 11 11:11 root.txt
+12 -rw-------   1 hilgerbj uuidd  8237 Feb 11 10:45 .viminfo
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ mv root2.txt newroot.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ cp newroot.txt lab1/root3.txt
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ cd lab1
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ mkdir hold
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ mkdir temp
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ cp root3.txt temp/root4.txt
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ mv root3.txt hold/root5.txt
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ rm hold/root5.txt
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ rmdir hold
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ ls -lsa
+total 12
+4 drwxrw-r-x 3 hilgerbj uuidd 4096 Feb 11 11:14 [0m[01;34m.[0m
+4 drwxrwxr-x 9 hilgerbj uuidd 4096 Feb 11 11:12 [01;34m..[0m
+4 drwxr-xr-x 2 hilgerbj uuidd 4096 Feb 11 11:13 [01;34mtemp[0m
+]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ clear
+[3J[H[2J]0;hilgerbj@os1: ~/lab1[01;32mhilgerbj@os1[00m:[01;34m~/lab1[00m$ cd ~
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ pwd
+/home/hilgerbj
+]0;hilgerbj@os1: ~[01;32mhilgerbj@os1[00m:[01;34m~[00m$ exit
+exit
+
+Script done on 2020-02-11 11:14:52-0500

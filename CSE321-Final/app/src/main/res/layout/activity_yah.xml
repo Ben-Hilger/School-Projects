@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".YahActivity">
+
+    <Button
+        android:id="@+id/diceThree"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceTwo" />
+
+    <Button
+        android:id="@+id/diceFive"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:text="1"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceFour"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/diceOne"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="2dp"
+        android:text="1"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/diceTwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/diceTwo"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:text="1"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceOne"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/diceFour"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="1"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/diceFive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceThree"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="756dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="262dp"
+        android:layout_marginBottom="80dp"
+        android:text="Roll"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/diceFive"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="415dp"
+        android:layout_height="481dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toStartOf="@+id/tableLayout2"
+        app:layout_constraintStart_toEndOf="@+id/diceThree"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Aces"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/aces_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/aces_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Twos"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/twos_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/twos_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Threes"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/threes_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/threes_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Fours"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/fours_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/fours_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Fives"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/fives_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/fives_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Sixes"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/sixes_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/sixes_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Bonus"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/upper_bonus"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="400dp"
+        android:layout_height="481dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="201dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tableLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="3 of a kind"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/three_kind_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/three_kind_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="4 of a kind"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/four_kind_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/four_kind_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Full House"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/full_house_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/full_house_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="SM Straight"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/sm_straight_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/sm_straight_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="LG Straight"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/lg_straight_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/lg_straight_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Yahtzee"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/yahtzee_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/yahtzee_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="326dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Chance"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/chance_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/chance_score_button"
+                android:layout_width="100dp"
+                android:text="Add"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="290dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="348dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="62dp"
+        android:text="Yahtzee"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toStartOf="@+id/total_score_id"
+        app:layout_constraintStart_toEndOf="@+id/diceOne"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total_score_id"
+        android:layout_width="378dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="1dp"
+        android:text="Total Score: 0"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/round"
+        android:layout_width="329dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="72dp"
+        android:text="Round: 1"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/total_score_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

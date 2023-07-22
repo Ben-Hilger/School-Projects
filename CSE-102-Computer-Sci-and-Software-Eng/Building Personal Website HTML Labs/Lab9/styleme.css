@@ -1,0 +1,98 @@
+body {
+    background-color: dimgray;
+    color: maroon;
+    text-shadow: 1px 1px #000000;
+    font-family: Trebuchet MS;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: auto;
+	margin-top: auto;
+    text-align: center;
+}
+
+button {
+    border: black;
+    padding: 8px 8px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+    background-color: white;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
+
+table, td {
+	text-align: center;
+}
+
+#MoodTable {
+	border: none;
+}
+
+#MoodData {
+	border: none;
+}
+
+#CenterDiv {
+    width: 100%;
+    text-align: center;
+}
+
+#inputDiv {
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+#AboutMeTable {
+    border: none;
+    width: 100%;
+    
+}
+
+#AboutMeData {
+    border: none;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    color: black;
+}
+    
+
+
+body {
+	background-color: lightblue;
+}
+
+p {
+	color: black;
+    font-style: "TimesNewRoman";
+    width: 100%;
+    text-align: center;
+}
+
+#HappyText {
+	color: green;
+    font-style: "Arial";
+}
+
+#SadText {
+	color: grey;
+    font-style: "Arial";
+}
+
+
+b {
+    color: blue;
+    font-size: 125%;
+}
+

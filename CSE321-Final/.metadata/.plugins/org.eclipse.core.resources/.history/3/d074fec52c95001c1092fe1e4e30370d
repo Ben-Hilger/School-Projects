@@ -1,0 +1,145 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.junit.experimental.theories.DataPoints;
+import org.junit.experimental.theories.Theories;
+import org.junit.experimental.theories.Theory;
+import org.junit.runner.RunWith;
+
+@RunWith(Theories.class)
+public class PointTest {
+
+	@DataPoints
+	public static ArrayList[] points = { 
+			// Data points to test for self and non-point objects
+			new ArrayList(Arrays.asList(1, 5)),
+			new ArrayList(Arrays.asList(1, 5)),
+			new ArrayList(Arrays.asList(-1, -5)),
+			new ArrayList(Arrays.asList(-1, 5)),
+			new ArrayList(Arrays.asList(1, -5)),
+			// Data points to test for comparing two points
+			new ArrayList(Arrays.asList(2, 22, 22, 2)),
+			new ArrayList(Arrays.asList(2, 22, 5, -2)),
+			new ArrayList(Arrays.asList(2, -22, 22, 2)),
+			new ArrayList(Arrays.asList(-2, 22, 22, 2)),
+			new ArrayList(Arrays.asList(2, 22, -22, 2)),
+			new ArrayList(Arrays.asList(-2, 22, -22, 2)),
+			new ArrayList(Arrays.asList(2, 22, -22, -2)),
+			new ArrayList(Arrays.asList(2, -22, -22, 2)),
+			new ArrayList(Arrays.asList(-2, -22, -22, -2)),
+			new ArrayList(Arrays.asList(5, 4, 5, 4)),
+			new ArrayList(Arrays.asList(-5, 4, -5, 4)),
+			new ArrayList(Arrays.asList(5, -4, 5, -4)),
+			new ArrayList(Arrays.asList(-5, -4, -5, -4)),
+	};
+	
+	@Theory
+	public void notEqualToNonPointObjects(ArrayList<Integer> vals) {
+		// Assume only two valid points
+		assumeTrue(vals.size() == 2);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		// Test to ensure non-Point objects return false
+		assertFalse(point1.equals(""));
+	}
+	
+	@Theory
+	public void equalToSelf(ArrayList<Integer> vals) {
+		// Assume only two valid points
+		assumeTrue(vals.size() == 2);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		// Ensure that the point equals itself
+		Point point = new Point(vals.get(0), vals.get(1));
+		assumeTrue(point.equals(point));
+		assumeTrue(point.equals(point));
+	}
+	
+	@Theory
+	public void equalToOtherWithSameCoords(ArrayList<Integer> vals) {
+		// Ensure only four valid points with x1 = x2, and y1 = y2
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) == vals.get(2));
+		assumeTrue(vals.get(1) == vals.get(3));
+		// Create the points, and ensure point1 = point2, and point2 = point1
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		assertTrue(point1.equals(point2));
+		assertTrue(point2.equals(point1));	
+	}
+	
+	@Theory
+	public void notEqualWhenCoordsDifferent(ArrayList<Integer> vals) {
+		// Ensure only four valid points with x1 != x2, and y1 != y2
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) != vals.get(2) && vals.get(1) != vals.get(3));
+		// Create the points, and ensure point1 != point2, and point2 != point1
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		// Ensure (x, y) and (y, x) aren't equal (in this case, (5, 1) and (1, 5)
+		assertFalse(point1.equals(point2));
+		assertFalse(point2.equals(point1));
+	}
+		
+	@Theory
+	public void notEqualHashCode(ArrayList<Integer> vals) {
+		// Ensure only four valid points with x1 != x2 OR y1 != y2
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) != vals.get(2) || vals.get(1) != vals.get(3));
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		// Generate the hash code for each point
+		int hashCode1 = Integer.parseInt("" + 
+				(vals.get(0) < 0 ? (int)'-' : "") + Math.abs(vals.get(0)) + ((int)'-') + 
+				(vals.get(1) < 0 ? (int)'-' : "") + Math.abs(vals.get(1)));
+		int hashCode2 = Integer.parseInt("" + 
+				(vals.get(2) < 0 ? (int)'-' : "") + Math.abs(vals.get(2)) + ((int)'-') + 
+				(vals.get(3) < 0 ? (int)'-' : "") + Math.abs(vals.get(3)));
+		// Ensure that 
+		assertFalse(point1.hashCode() == hashCode2);
+		assertTrue(point2.hashCode() == hashCode2);
+		assertFalse(point2.hashCode() == hashCode1);
+		assertTrue(point1.hashCode() == hashCode1);
+	}
+	
+	@Theory
+	public void equalHashCode(ArrayList<Integer> vals) {
+		assumeTrue(vals.size() == 4);
+		assumeTrue(vals.get(0) != null);
+		assumeTrue(vals.get(1) != null);
+		assumeTrue(vals.get(2) != null);
+		assumeTrue(vals.get(3) != null);
+		assumeTrue(vals.get(0) == vals.get(2));
+		assumeTrue(vals.get(1) == vals.get(3));
+		Point point1 = new Point(vals.get(0), vals.get(1));
+		Point point2 = new Point(vals.get(2), vals.get(3));
+		int hashCode1 = Integer.parseInt("" + 
+				(vals.get(0) < 0 ? (int)'-' : "") + Math.abs(vals.get(0)) + ((int)'-') + 
+				(vals.get(1) < 0 ? (int)'-' : "") + Math.abs(vals.get(1)));
+		int hashCode2 = Integer.parseInt("" + 
+				(vals.get(2) < 0 ? (int)'-' : "") + Math.abs(vals.get(2)) + ((int)'-') + 
+				(vals.get(3) < 0 ? (int)'-' : "") + Math.abs(vals.get(3)));
+		assertTrue(point1.hashCode() == hashCode1);
+		assertTrue(point2.hashCode() == hashCode2);
+		assertTrue(point1.hashCode() == point2.hashCode());
+	}
+	
+	
+}

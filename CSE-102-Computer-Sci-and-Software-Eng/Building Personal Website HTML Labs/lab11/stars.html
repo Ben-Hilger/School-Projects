@@ -1,0 +1,53 @@
+<!--
+Name: Ben Hilger
+Date: 11/18/19
+Section: B
+Email: hilgerbj@miamioh.edu
+
+Unique ID: hilgerbj
+-->
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styleme.css"/>
+		<title> About Benjamin Hilger </title>
+	</head>
+
+	<body>
+		<p style="width:100%;text-align:center"> About Benjamin Hilger </p>
+        
+        <div id="CenterDiv">
+                <button onclick="location.href='index.html'"> Home </button>
+                <button onclick="location.href='classes.html'"> Classes </button>
+                <button onclick="location.href='my_favorite.html'"> My Favorite </button>
+                <button onclick="location.href='my_mood.html'"> My Moods </button>
+                <button onclick="location.href='my_neighbors.html'"> My Neighbors </button>                
+				<button onclick="location.href='programs.html'"> My Programs </button>
+        </div>
+        <hr>
+        <div id="CenterDiv">
+          <p> Print Stars Using for loop </p>
+		</div>		
+		
+		<div id="inputDiv">
+            <script>
+                numStar = prompt("Number of star you would like to see?", "0");
+                
+                for(i=1; i<=numStar; i++) {
+                    for(i2=1; i2 <= i; i2++) {
+                        document.write("*");
+                    }
+                    document.write("<br>");
+                }
+            </script>
+		</div>
+        <hr>
+            <div id="CenterDiv">
+                <button onclick="document.body.style.backgroundColor = 'blue';"> Change Background Color </button>
+            </div>
+      
+        
+        
+        
+	</body>
+</html>
